@@ -24,9 +24,17 @@ class UserDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        var level = detailUserModel.level
+        var combat = detailUserModel.combat
+        var oneShot = detailUserModel.oneShot
+        var monsterLevel = detailUserModel.monsterLevel
+        var effectiveCombat = detailUserModel.effectiveCombat
+        var netCombatResult = detailUserModel.netCombatResult
+        
         self.userNameTextField.text = detailUserModel.userName
         self.combatLevelLabel.text = "\(detailUserModel.combat)"
         self.userLevelLabel.text = "\(detailUserModel.level)"
+        self.oneShotLevelLabel.text = "\(detailUserModel.oneShot)"
         
     }
 
