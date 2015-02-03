@@ -85,10 +85,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.performSegueWithIdentifier("showUserDetailVC", sender: self)
     }
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        println(indexPath.row)
-//        
-//        performSegueWithIdentifier("showUserDetailVC", sender: self)
+    
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        let thisUser = fetchedResultsController.objectAtIndexPath(indexPath) as UserModel
 //    }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -106,7 +105,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func userFetchRequest() -> NSFetchRequest {
         let fetchRequest = NSFetchRequest(entityName: "UserModel")
-        let sortDescriptor = NSSortDescriptor(key: "level", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "level", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         return fetchRequest
@@ -114,7 +113,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func getFetchResultsController() -> NSFetchedResultsController {
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: userFetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: "level", cacheName: nil)
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: userFetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
         return fetchedResultsController
     }

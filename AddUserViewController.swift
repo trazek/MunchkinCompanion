@@ -81,7 +81,7 @@ class AddUserViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    // Stat Buttons
+    // Stat buttons
     
     @IBAction func decrementLevelButtonPressed(sender: UIButton) {
         if level > 1 {
