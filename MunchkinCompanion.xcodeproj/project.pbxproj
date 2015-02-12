@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DD12F0BA1A7EE1A2000F7F69 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12F0B91A7EE1A2000F7F69 /* UserModel.swift */; };
+		DD40B71B1A8C57B20020EA53 /* RulesAndFaqsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD40B71A1A8C57B20020EA53 /* RulesAndFaqsViewController.swift */; };
+		DD40B71D1A8C5F9D0020EA53 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD40B71C1A8C5F9D0020EA53 /* DataController.swift */; };
 		DDE4DB111A7D69F200B1FDBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE4DB101A7D69F200B1FDBF /* AppDelegate.swift */; };
 		DDE4DB141A7D69F200B1FDBF /* MunchkinCompanion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDE4DB121A7D69F200B1FDBF /* MunchkinCompanion.xcdatamodeld */; };
 		DDE4DB191A7D69F200B1FDBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE4DB171A7D69F200B1FDBF /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		DD12F0B91A7EE1A2000F7F69 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = ../UserModel.swift; sourceTree = "<group>"; };
+		DD40B71A1A8C57B20020EA53 /* RulesAndFaqsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesAndFaqsViewController.swift; sourceTree = "<group>"; };
+		DD40B71C1A8C5F9D0020EA53 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		DDE4DB0B1A7D69F200B1FDBF /* MunchkinCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MunchkinCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE4DB0F1A7D69F200B1FDBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDE4DB101A7D69F200B1FDBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 				DDE4DB331A7D6A1700B1FDBF /* MainViewController.swift */,
 				DDE4DB391A7D6E1A00B1FDBF /* UserDetailViewController.swift */,
 				DDE4DB171A7D69F200B1FDBF /* Main.storyboard */,
+				DD40B71A1A8C57B20020EA53 /* RulesAndFaqsViewController.swift */,
+				DD40B71C1A8C5F9D0020EA53 /* DataController.swift */,
 				DDE4DB351A7D6C0000B1FDBF /* UserCell.swift */,
 				DDE4DB1A1A7D69F200B1FDBF /* Images.xcassets */,
 				DDE4DB1C1A7D69F200B1FDBF /* LaunchScreen.xib */,
@@ -231,8 +237,10 @@
 				DD12F0BA1A7EE1A2000F7F69 /* UserModel.swift in Sources */,
 				DDE4DB341A7D6A1700B1FDBF /* MainViewController.swift in Sources */,
 				DDE4DB3A1A7D6E1A00B1FDBF /* UserDetailViewController.swift in Sources */,
+				DD40B71D1A8C5F9D0020EA53 /* DataController.swift in Sources */,
 				DDE4DB111A7D69F200B1FDBF /* AppDelegate.swift in Sources */,
 				DDE4DB3C1A7D713900B1FDBF /* AddUserViewController.swift in Sources */,
+				DD40B71B1A8C57B20020EA53 /* RulesAndFaqsViewController.swift in Sources */,
 				DDE4DB141A7D69F200B1FDBF /* MunchkinCompanion.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
