@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
@@ -18,7 +18,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         fetchedResultsController = getFetchResultsController()
         fetchedResultsController.delegate = self
@@ -30,7 +30,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -43,8 +43,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let thisUser = fetchedResultsController.objectAtIndexPath(indexPath!) as UserModel
             userDetailVC.detailUserModel = thisUser
         } else if segue.identifier == "showAddUserVC" {
-                let addUserVC:AddUserViewController = segue.destinationViewController as AddUserViewController
-            }
+            let addUserVC:AddUserViewController = segue.destinationViewController as AddUserViewController
+        }
     }
     
     @IBAction func addUserBarButtonItemPressed(sender: UIBarButtonItem) {
@@ -86,9 +86,20 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.performSegueWithIdentifier("showUserDetailVC", sender: self)
     }
     
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        let thisUser = fetchedResultsController.objectAtIndexPath(indexPath) as UserModel
-//    }
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            let appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            let context:NSManagedObjectContext = appDel.managedObjectContext!
+            let thisUser = fetchedResultsController.objectAtIndexPath(indexPath) as UserModel
+            context.deleteObject(thisUser)
+            context.save(nil)
+
+        }
+    }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 25
@@ -100,7 +111,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.reloadData()
         println("DidChangeContent called")
     }
-
+    
     // Helper functions
     
     func userFetchRequest() -> NSFetchRequest {
@@ -117,4 +128,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         return fetchedResultsController
     }
+    
+    // MARK - makeRequest
+    
+    //    func makeRequest (searchString: String) {
+    //
+    //        var request = NSMutableURLRequest(URL: NSURL(string: "http://bgg-json.azurewebsites.net/thing/1927")!)
+    //        let session = NSURLSession.sharedSession()
+    //        request.HTTPMethod = "POST"
+    //
+    //        var params = [
+    //
+    //        ]
+    //    }
+    
+    
+    
+    
+    
 }
