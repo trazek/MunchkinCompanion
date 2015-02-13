@@ -18,7 +18,6 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
     var effectiveCombat = 0
     var netCombatResult = 0
     
-    @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userLevelLabel: UILabel!
     @IBOutlet weak var userCombatLabel: UILabel!
     @IBOutlet weak var userOneShotLabel: UILabel!
@@ -36,6 +35,8 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
         calculateAndUpdate(level, combat: combat, oneShot: oneShot, monsterLevel: monsterLevel)
         
         self.monsterLevelTextField.delegate = self
+        
+        self.title = detailUserModel.userName
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -57,7 +58,7 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
     @IBAction func doneBarButtonItemPressed(sender: UIBarButtonItem) {
         let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         
-        detailUserModel.userName = userNameTextField.text
+//      detailUserModel.userName = userNameTextField.text
         detailUserModel.combat = combat
         detailUserModel.level = level
         detailUserModel.oneShot = oneShot
@@ -122,10 +123,10 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        userNameTextField.resignFirstResponder()
-        return true
-    }
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        userNameTextField.resignFirstResponder()
+//        return true
+//    }
 
     // This funciton validates textfield input
     
@@ -186,7 +187,7 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
         self.effectiveCombat = Int(detailUserModel.effectiveCombat)
         self.netCombatResult = Int(detailUserModel.netCombatResult)
         
-        self.userNameTextField.text = detailUserModel.userName
+//        self.userNameTextField.text = detailUserModel.userName
         self.userCombatLabel.text = "\(detailUserModel.combat)"
         self.userLevelLabel.text = "\(detailUserModel.level)"
         self.userOneShotLabel.text = "\(detailUserModel.oneShot)"
