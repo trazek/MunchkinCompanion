@@ -11,6 +11,7 @@
 		DD40B71B1A8C57B20020EA53 /* RulesAndFaqsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD40B71A1A8C57B20020EA53 /* RulesAndFaqsViewController.swift */; };
 		DD40B71D1A8C5F9D0020EA53 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD40B71C1A8C5F9D0020EA53 /* DataController.swift */; };
 		DD709A941A8D7D4E006A473F /* RulesAndFaqsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD709A931A8D7D4E006A473F /* RulesAndFaqsDetailViewController.swift */; };
+		DDC662861A92579B0034FE5F /* AddHelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC662851A92579B0034FE5F /* AddHelperViewController.swift */; };
 		DDE4DB111A7D69F200B1FDBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE4DB101A7D69F200B1FDBF /* AppDelegate.swift */; };
 		DDE4DB141A7D69F200B1FDBF /* MunchkinCompanion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDE4DB121A7D69F200B1FDBF /* MunchkinCompanion.xcdatamodeld */; };
 		DDE4DB191A7D69F200B1FDBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE4DB171A7D69F200B1FDBF /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		DD40B71A1A8C57B20020EA53 /* RulesAndFaqsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesAndFaqsViewController.swift; sourceTree = "<group>"; };
 		DD40B71C1A8C5F9D0020EA53 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		DD709A931A8D7D4E006A473F /* RulesAndFaqsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesAndFaqsDetailViewController.swift; sourceTree = "<group>"; };
+		DDC662851A92579B0034FE5F /* AddHelperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddHelperViewController.swift; sourceTree = "<group>"; };
 		DDE4DB0B1A7D69F200B1FDBF /* MunchkinCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MunchkinCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE4DB0F1A7D69F200B1FDBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDE4DB101A7D69F200B1FDBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,8 +97,9 @@
 			children = (
 				DDE4DB101A7D69F200B1FDBF /* AppDelegate.swift */,
 				DDE4DB3B1A7D713900B1FDBF /* AddUserViewController.swift */,
-				DDE4DB331A7D6A1700B1FDBF /* MainViewController.swift */,
+				DDC662851A92579B0034FE5F /* AddHelperViewController.swift */,
 				DDE4DB391A7D6E1A00B1FDBF /* UserDetailViewController.swift */,
+				DDE4DB331A7D6A1700B1FDBF /* MainViewController.swift */,
 				DDE4DB171A7D69F200B1FDBF /* Main.storyboard */,
 				DD709A931A8D7D4E006A473F /* RulesAndFaqsDetailViewController.swift */,
 				DD40B71A1A8C57B20020EA53 /* RulesAndFaqsViewController.swift */,
@@ -240,6 +243,7 @@
 				DD12F0BA1A7EE1A2000F7F69 /* UserModel.swift in Sources */,
 				DDE4DB341A7D6A1700B1FDBF /* MainViewController.swift in Sources */,
 				DDE4DB3A1A7D6E1A00B1FDBF /* UserDetailViewController.swift in Sources */,
+				DDC662861A92579B0034FE5F /* AddHelperViewController.swift in Sources */,
 				DD709A941A8D7D4E006A473F /* RulesAndFaqsDetailViewController.swift in Sources */,
 				DD40B71D1A8C5F9D0020EA53 /* DataController.swift in Sources */,
 				DDE4DB111A7D69F200B1FDBF /* AppDelegate.swift in Sources */,

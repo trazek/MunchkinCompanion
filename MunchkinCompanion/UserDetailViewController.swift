@@ -202,12 +202,9 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
-    
-    
-    
-    
-    
+    @IBAction func askForHelpButtonPressed(sender: UIButton) {
+        self.performSegueWithIdentifier("showAddHelperVC", sender: self)
+    }
     
     
 }
