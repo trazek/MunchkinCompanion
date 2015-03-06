@@ -8,7 +8,9 @@
 
 import UIKit
 
-class UserDetailViewController: UIViewController, UITextFieldDelegate {
+class UserDetailViewController: UIViewController, UITextFieldDelegate, AddHelperVCDelegate {
+
+    var addHelperVC: AddHelperViewController!
     
     var detailUserModel: UserModel!
     var level = 1
@@ -25,10 +27,10 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var netCombatResultLabel: UILabel!
     @IBOutlet weak var combatOutcomeLabel: UILabel!
     @IBOutlet weak var monsterLevelTextField: UITextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         updateVariables()
@@ -37,14 +39,16 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
         self.monsterLevelTextField.delegate = self
         
         self.title = detailUserModel.userName
+        
     }
-
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
         tapRecognizer.numberOfTapsRequired = 1
         
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Papyrus", size: 21.0)!]
         self.view.addGestureRecognizer(tapRecognizer)
     }
     
@@ -58,7 +62,7 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
     @IBAction func doneBarButtonItemPressed(sender: UIBarButtonItem) {
         let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         
-//      detailUserModel.userName = userNameTextField.text
+        //      detailUserModel.userName = userNameTextField.text
         detailUserModel.combat = combat
         detailUserModel.level = level
         detailUserModel.oneShot = oneShot
@@ -107,6 +111,10 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
         calculateAndUpdate(level, combat: combat, oneShot: oneShot, monsterLevel: monsterLevel)
     }
     
+    @IBAction func askForHelpButtonPressed(sender: UIButton) {
+        self.performSegueWithIdentifier("showAddHelperVC", sender: self)
+    }
+    
     // Labels and textfields
     
     @IBAction func monsterLevelTextFieldEditingDidEnd(sender: UITextField) {
@@ -123,11 +131,6 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-//    func textFieldShouldReturn(textField: UITextField) -> Bool {
-//        userNameTextField.resignFirstResponder()
-//        return true
-//    }
-
     // This funciton validates textfield input
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -187,7 +190,7 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
         self.effectiveCombat = Int(detailUserModel.effectiveCombat)
         self.netCombatResult = Int(detailUserModel.netCombatResult)
         
-//        self.userNameTextField.text = detailUserModel.userName
+        //        self.userNameTextField.text = detailUserModel.userName
         self.userCombatLabel.text = "\(detailUserModel.combat)"
         self.userLevelLabel.text = "\(detailUserModel.level)"
         self.userOneShotLabel.text = "\(detailUserModel.oneShot)"
@@ -202,8 +205,9 @@ class UserDetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @IBAction func askForHelpButtonPressed(sender: UIButton) {
-        self.performSegueWithIdentifier("showAddHelperVC", sender: self)
+    func didFinishAddingHelper(controller: AddHelperViewController) {
+        self.effectiveCombat = Int(controller.helperBonus)
+        controller.navigationController?.popViewControllerAnimated(true)
     }
     
     

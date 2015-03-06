@@ -42,4 +42,17 @@ class RulesAndFaqsViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
+    
+    // MARK - makeRequest
+    
+    //    func makeRequest (searchString: String) {
+    //
+    //        var request = NSMutableURLRequest(URL: NSURL(string: "http://bgg-json.azurewebsites.net/thing/1927")!)
+    //        let session = NSURLSession.sharedSession()
+    //        request.HTTPMethod = "POST"
+    //
+    //        var params = [
+    //
+    //        ]
+    //    }
 }

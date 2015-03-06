@@ -72,7 +72,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.nameLabel.text = thisUser.userName
         cell.levelLabel.text = "\(thisUser.level)"
-        cell.combatLabel.text = "\(thisUser.combat)"
+        cell.combatLabel.text = "\(thisUser.effectiveCombat)"
         
         println("returning cell")
         return cell
@@ -129,18 +129,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return fetchedResultsController
     }
     
-    // MARK - makeRequest
-    
-    //    func makeRequest (searchString: String) {
-    //
-    //        var request = NSMutableURLRequest(URL: NSURL(string: "http://bgg-json.azurewebsites.net/thing/1927")!)
-    //        let session = NSURLSession.sharedSession()
-    //        request.HTTPMethod = "POST"
-    //
-    //        var params = [
-    //
-    //        ]
-    //    }
+
     
     
     

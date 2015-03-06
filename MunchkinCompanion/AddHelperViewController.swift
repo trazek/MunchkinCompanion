@@ -9,13 +9,22 @@
 import UIKit
 import CoreData
 
+@objc protocol AddHelperVCDelegate {
+    func didFinishAddingHelper(controller: AddHelperViewController)
+}
+
 class AddHelperViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController:NSFetchedResultsController = NSFetchedResultsController()
-    
+
+    var delegate:AddHelperVCDelegate?
+    let addHelperVC = AddHelperViewController()
+    addHelperVC.delegate = self
+
+    var helperBonus:NSNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +58,7 @@ class AddHelperViewController: UIViewController, UITableViewDataSource, UITableV
         
         cell.nameLabel.text = thisUser.userName
         cell.levelLabel.text = "\(thisUser.level)"
-        cell.combatLabel.text = "\(thisUser.combat)"
+        cell.combatLabel.text = "\(thisUser.effectiveCombat)"
         
         return cell
     }
@@ -57,8 +66,21 @@ class AddHelperViewController: UIViewController, UITableViewDataSource, UITableV
     // UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var indexPathForRow = tableView.indexPathForSelectedRow()
+        println("indexPath for selected row is: \(indexPathForRow)")
+        
+        let thisUser = fetchedResultsController.objectAtIndexPath(indexPath) as UserModel
+        var cell:UserCell = tableView.dequeueReusableCellWithIdentifier("helperCell") as UserCell
+        
+        helperBonus = thisUser.effectiveCombat
+        helperBonus = Int(helperBonus)
+        
+        println("helperBonus is: \(helperBonus)")
 
-        navigationController?.popViewControllerAnimated(true)
+        delegate?.didFinishAddingHelper(self)
+        
+//        navigationController?.popViewControllerAnimated(true)
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
